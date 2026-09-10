@@ -1,0 +1,98 @@
+\documentclass[sigconf]{acmart}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\title{NeuroDigital Interfaces and Adaptive Cognitive Networking: A Nanotechnology-Ready Framework for Human-AI Cognitive Interfaces}
+\author{Fernando May Fuentes}
+\affiliation{\institution{Instituto Polit\'{e}cnico Nacional, UPIITA}\city{Mexico City}\country{Mexico}}
+\affiliation{\institution{Beihang University, School of Information and Communication Engineering}\city{Beijing}\country{China}}
+\email{fmayf1500@alumno.ipn.mx}
+\thanks{ORCID: \href{https://orcid.org/0009-0002-3953-5224}{0009-0002-3953-5224}.}
+
+\begin{document}
+\begin{abstract}
+NeuroDigital Interfaces (NDI) provide a systems pathway for translating non-invasive neural observations into machine-interpretable cognitive states while preserving uncertainty, privacy, and human agency. This paper presents NDAN, a NeuroDigital Adaptive Network that combines BCI signal preprocessing, probabilistic cognitive-state estimation, adaptive networking, and a governance layer for human-AI interaction. The proposed framework is nanotechnology-ready rather than nanotechnology-validated: nanosensors, flexible electrodes, and low-power edge devices are specified as future sensing substrates, while the current validation layer is software-based. We formalize the observation-to-intent pipeline, define uncertainty-aware state communication, and propose an evaluation protocol covering signal quality, latency, calibration, energy, privacy, and human-in-the-loop utility. The paper avoids claims of direct telepathy or clinical efficacy and instead establishes a reproducible architecture and translational roadmap for safe cognitive interfaces.
+\end{abstract}
+\keywords{neurodigital interfaces, BCI, cognitive networking, nanosensors, human-AI interaction, neuro-rights}
+\maketitle
+
+\section{Introduction}
+Human-AI interaction is increasingly constrained by the bandwidth and ambiguity of conventional input channels. NeuroDigital Interfaces can complement these channels by estimating task-relevant cognitive states from non-invasive measurements such as EEG or fNIRS. However, the engineering challenge is not simply signal classification: a useful interface must quantify uncertainty, adapt to changing users and environments, communicate safely with distributed agents, and preserve autonomy.
+
+This paper introduces NDAN as a system architecture rather than a claim of mind reading. The nanotechnology connection is defined as a future sensing and packaging layer involving nanosensors, flexible electrode interfaces, and low-power edge electronics. Those components require independent hardware and biomedical validation and are not presented as experimentally demonstrated here.
+
+\section{System Architecture}
+NDAN is organized into five layers:
+\begin{enumerate}
+\item \textbf{Sensing:} neural, physiological, and contextual observations;
+\item \textbf{Signal processing:} filtering, artifact detection, feature extraction, and calibration;
+\item \textbf{Cognitive state estimation:} probabilistic estimates of attention, workload, fatigue, and task intent;
+\item \textbf{Adaptive networking:} state-aware communication among human, edge, and AI agents;
+\item \textbf{Governance:} consent, provenance, access control, uncertainty disclosure, and reversibility.
+\end{enumerate}
+
+The resulting loop is:
+\begin{equation}
+ y_t \rightarrow \phi(y_t) \rightarrow p(z_t|\phi) \rightarrow m_t \rightarrow a_t \rightarrow y_{t+1},
+\end{equation}
+where $y_t$ is a sensor observation, $z_t$ is a latent cognitive state, $m_t$ is a privacy-preserving message, and $a_t$ is an adaptive system action.
+
+\section{Nanotechnology-Ready Interface}
+The architecture identifies three interfaces where nanoscale engineering may provide future benefits:
+\begin{itemize}
+\item flexible, high-density electrode or nanosensor arrays;
+\item low-noise analog front ends and energy-aware edge processing;
+\item biocompatible packaging and reliable skin/interface contact.
+\end{itemize}
+These are requirements, not claims of a fabricated device. A valid hardware study must report material composition, sensor calibration, impedance, safety limits, sampling characteristics, and repeatability across users.
+
+\section{Cognitive State Communication}
+Rather than transmitting raw neural signals, NDAN transmits a state estimate and uncertainty:
+\begin{equation}
+ m_t = (\hat{z}_t, \Sigma_t, c_t, \pi_t),
+\end{equation}
+where $\hat{z}_t$ is the estimated state, $\Sigma_t$ its uncertainty, $c_t$ a consent scope, and $\pi_t$ a provenance record. An agent may act only when confidence and consent satisfy policy constraints. This design reduces unnecessary data exposure and makes uncertainty a first-class networking object.
+
+\section{Evaluation Protocol}
+The proposed validation sequence contains four stages:
+\begin{enumerate}
+\item synthetic signals for unit and integration testing;
+\item public EEG/BCI datasets with subject-wise splits;
+\item controlled laboratory sessions with informed consent;
+\item hardware-in-the-loop evaluation of the sensing and edge pipeline.
+\end{enumerate}
+Metrics include balanced accuracy, calibration error, false activation rate, end-to-end latency, energy per inference, bandwidth per cognitive-state message, privacy leakage, and user-reported workload. No result should be generalized across users without subject-wise validation.
+
+\begin{table}[h]
+\centering
+\caption{Required reporting matrix for future validation.}
+\begin{tabular}{ll}
+\toprule
+Dimension & Required evidence \\
+\midrule
+Signal & Sampling, filtering, artifacts, sensor calibration \\
+Model & Architecture, training split, uncertainty method \\
+Network & Message size, latency, loss, adaptation policy \\
+Safety & Consent, withdrawal, privacy, failure-safe behavior \\
+Hardware & Materials, impedance, power, thermal limits \\
+Reproducibility & Seeds, code, dataset license, environment \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Governance and Neuro-Rights}
+NDAN must not infer sensitive attributes without explicit purpose and consent. The governance layer applies data minimization, local processing where possible, cryptographic provenance, user-visible uncertainty, and an emergency stop. A cognitive estimate is not a diagnosis, legal fact, or authorization to act. Human-in-the-loop review is mandatory for consequential actions.
+
+\section{Discussion}
+NDAN connects nanoscale sensing, BCI signal processing, adaptive networks, and human-AI systems without collapsing them into an unsupported telepathy claim. The strongest near-term contribution is a reproducible systems architecture and evaluation framework. The most important research risk is domain shift: a model that works on synthetic signals may fail across users, electrode placements, motion artifacts, or changing tasks.
+
+\section{Conclusion}
+This paper defines a nanotechnology-ready architecture for NeuroDigital Interfaces and Adaptive Cognitive Networking. It provides a disciplined path from software prototypes to sensor and human-in-the-loop validation. Future work will implement public-dataset benchmarks, integrate the FCSTN/NDAN software lineage after its BCI test failures are corrected, and evaluate privacy-preserving cognitive-state communication.
+
+\begin{thebibliography}{99}
+\bibitem{wolpaw} J. R. Wolpaw et al., ``Brain-computer interfaces for communication and control,'' \emph{Clinical Neurophysiology}, 2002.
+\bibitem{niedermeyer} E. Niedermeyer and F. Lopes da Silva, \emph{Electroencephalography}, 6th ed., 2011.
+\bibitem{yuste} R. Yuste et al., ``Four ethical priorities for neurotechnologies and AI,'' \emph{Nature}, 2017.
+\bibitem{ndandocs} F. M. Fuentes, ``NDAN and Adaptive Cognitive Networking,'' technical research package, 2026.
+\end{thebibliography}
+\end{document}
